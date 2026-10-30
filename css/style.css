@@ -1,0 +1,445 @@
+/* ===== Registan Travel — one stylesheet for both pages ===== */
+
+/* Reset + box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background: #FAF6EE;              /* Sand */
+    padding-top: 70px;                /* content does not hide under fixed header */
+}
+
+/* Group selector: all headings share the brand font and colour */
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    color: #0B1F4B;
+}
+
+/* ===== Header (fixed, flexbox) ===== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0B1F4B;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #E0A526;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* LVHA order: link, visited, hover, active */
+nav a:link,
+nav a:visited {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border-bottom: 3px solid transparent;
+    transition: background 0.2s;
+}
+
+nav a:hover {
+    background: #E0A526;
+    color: #0B1F4B;
+}
+
+nav a:active {
+    background: #c48f1c;
+}
+
+/* current page */
+nav a.active {
+    border-bottom-color: #E0A526;
+    border-radius: 6px 6px 0 0;
+}
+
+/* ===== Buttons ===== */
+.btn,
+button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0B1F4B;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+}
+
+.btn:hover,
+button:hover {
+    background: #E0A526;
+    color: #0B1F4B;
+}
+
+.btn:active,
+button:active {
+    transform: scale(0.95);           /* shrinks slightly when pressed */
+}
+
+nav a.btn-gold {
+    display: none;                    /* hidden on phones, shown from tablet */
+    background: #E0A526;
+    color: #0B1F4B;
+    border-radius: 30px;
+    margin-left: 8px;
+}
+
+nav a.btn-gold:hover {
+    background: white;
+}
+
+/* ===== Hero (ID selector) ===== */
+#hero {
+    position: relative;
+    text-align: center;
+    padding: 70px 20px;
+    color: white;
+    background: linear-gradient(180deg, #0B1F4B 0%, #1d3a7a 100%);
+}
+
+/* gold mosaic band at the bottom of the hero */
+#hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, #E0A526 0 20px, #0B1F4B 20px 24px, #1d6fa5 24px 44px, #0B1F4B 44px 48px);
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 4px 14px;
+    border: 1px solid #E0A526;
+    border-radius: 20px;
+    color: #E0A526;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+#hero p {
+    max-width: 520px;
+    margin: 0 auto 24px;
+    opacity: 0.9;
+}
+
+#hero .btn {
+    background: #E0A526;
+    color: #0B1F4B;
+}
+
+#hero .btn:hover {
+    background: white;
+}
+
+/* ===== Tours / cards (mobile first: 1 per row) ===== */
+.tours {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 16px;
+}
+
+.tours h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card {
+    position: relative;               /* badge is positioned inside the card */
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(11, 31, 75, 0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-8px);      /* card rises on hover */
+    box-shadow: 0 12px 24px rgba(11, 31, 75, 0.15);
+}
+
+.badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #E0A526;
+    color: #0B1F4B;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.card-img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;                /* photo fills the box without stretching */
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    margin-bottom: 4px;
+}
+
+.city {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0B1F4B;
+}
+
+.price span {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ===== Why travel with us ===== */
+.why {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px 50px;
+    text-align: center;
+}
+
+.why h2 {
+    margin-bottom: 24px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.feature {
+    padding: 20px;
+    border-top: 4px solid #E0A526;
+    border-radius: 12px;
+    background: white;
+}
+
+.feature-icon {
+    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: 6px;
+}
+
+.feature p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background: #0B1F4B;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+/* ===== Booking page ===== */
+.booking {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 40px 16px;
+}
+
+.subtitle {
+    color: #777;
+    margin-bottom: 24px;
+}
+
+#booking-form {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(11, 31, 75, 0.08);
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field label {
+    display: block;                   /* label above the field */
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #0B1F4B;
+}
+
+.required::after {
+    content: " *";
+    color: #C0392B;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #E0A526;
+    box-shadow: 0 0 0 3px rgba(224, 165, 38, 0.3);
+}
+
+input.error {
+    border-color: #C0392B;
+    background: #fdf0ee;
+}
+
+.total {
+    background: #FAF6EE;
+    border-left: 4px solid #E0A526;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #0B1F4B;
+}
+
+.total span {
+    display: block;
+    font-weight: normal;
+    color: #2e7d32;
+    font-size: 0.9rem;
+}
+
+#booking-form button {
+    width: 100%;
+}
+
+.message {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+}
+
+.message.error-msg {
+    display: block;
+    background: #fdf0ee;
+    color: #C0392B;
+    border: 1px solid #C0392B;
+}
+
+.message.success-msg {
+    display: block;
+    background: #eaf6ec;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+/* ===== Tablet: 768px and up — 2 cards per row ===== */
+@media (min-width: 768px) {
+    .site-header {
+        padding: 0 32px;
+    }
+
+    nav a.btn-gold {
+        display: inline-block;
+    }
+
+    #hero {
+        padding: 100px 20px;
+    }
+
+    #hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ===== Desktop: 1200px and up — 3 cards per row ===== */
+@media (min-width: 1200px) {
+    .site-header {
+        padding: 0 60px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

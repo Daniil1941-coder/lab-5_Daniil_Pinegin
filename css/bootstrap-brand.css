@@ -1,0 +1,66 @@
+/* ===== Registan Travel — brand colours on top of Bootstrap 5 ===== */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #FAF6EE;              /* Sand */
+    padding-top: 56px;                /* content does not hide under fixed-top navbar */
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    color: #0B1F4B;
+}
+
+.navbar-brand { font-family: Georgia, serif; font-weight: bold; }
+
+.bg-night   { background: #0B1F4B; }
+.text-night { color: #0B1F4B; }
+.text-gold  { color: #E0A526; }
+.bg-gold    { background: #E0A526; color: #0B1F4B; }
+
+.navbar .nav-link { color: white; border-radius: 6px; }
+.navbar .nav-link:hover { background: #E0A526; color: #0B1F4B; }
+.navbar .nav-link.active { border-bottom: 3px solid #E0A526; border-radius: 6px 6px 0 0; }
+
+/* Bootstrap buttons are coloured through CSS variables */
+.btn-gold {
+    --bs-btn-bg: #E0A526;
+    --bs-btn-color: #0B1F4B;
+    --bs-btn-hover-bg: white;
+    --bs-btn-hover-color: #0B1F4B;
+    --bs-btn-active-bg: white;
+    --bs-btn-active-color: #0B1F4B;
+    font-weight: bold;
+}
+.btn-gold:active { transform: scale(0.95); }
+
+.btn-night {
+    --bs-btn-bg: #0B1F4B;
+    --bs-btn-color: white;
+    --bs-btn-hover-bg: #E0A526;
+    --bs-btn-hover-color: #0B1F4B;
+    --bs-btn-active-bg: #E0A526;
+    --bs-btn-active-color: #0B1F4B;
+}
+
+/* same hero as the hand-written version */
+.hero {
+    position: relative;
+    background: linear-gradient(180deg, #0B1F4B 0%, #1d3a7a 100%);
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, #E0A526 0 20px, #0B1F4B 20px 24px, #1d6fa5 24px 44px, #0B1F4B 44px 48px);
+}
+.eyebrow { border: 1px solid #E0A526; color: #E0A526; letter-spacing: 2px; }
+.feature { border-top: 4px solid #E0A526; }
+
+.card { transition: transform 0.25s; }
+.card:hover { transform: translateY(-8px); }
+
+.tour-img { height: 180px; }
